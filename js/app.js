@@ -86,7 +86,7 @@ subtotal+=(parseFloat(menuCompleto[o.index].costo)*parseFloat(o.cantidad));
 }
 
 const calcularPropina=()=>{
-    let radioPropina=document.querySelector('input[name="propina"]:checked');
+    let radioPropina=document.querySelector(`input[name="propina"]:checked`);
 if(radioPropina){
     porcentaje=parseFloat(radioPropina.value)
 }
