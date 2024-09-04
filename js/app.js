@@ -79,7 +79,7 @@ subtotal+=(parseFloat(menuCompleto[o.index].costo)*parseFloat(o.cantidad));
         divOrden.innerHTML=ordenHTML;
         propina=((porcentaje/100)*subtotal);
         document.getElementById("subtotal").innerHTML=`$ ${subtotal.toFixed(2)}`
-        document.getElementById("propina").innerHTML=`$ ${propina.toFixed(2)}`
+        document.getElementById("propina").value.innerHTML=`$ ${propina.toFixed(2)}`
         document.getElementById("total").innerHTML=`$ ${(subtotal+propina).toFixed(2)}`
     }
 
