@@ -1,18 +1,18 @@
-var menuCompleto=JSON.parse(localStorage.getItem("menu"))||[];
-var ordenes=JSON.parse(localStorage.getItem("ordenes"))||[];
-var propina=0, subtotal=0, total=0, porcentaje=10;
+var menuCompleto = JSON.parse(localStorage.getItem("menu")) || [];
+var ordenes = JSON.parse(localStorage.getItem("ordenes")) || [];
+var propina = 0, subtotal = 0, total = 0, porcentaje = 0;
 
-const guardarMenu=()=>{
-    menuCompleto=JSON.parse(localStorage.getItem("menu"))||[];
-    var des=document.getElementById("des").value;
-    var costo=parseFloat(document.getElementById("cos").value);
-    if(des.trim()===""|| isNaN(costo)|| document.getElementById("cos").value===""|| costo<=0){
-        Swal.fire({icon: "error", title: "ERROR", text: "Datos incorrectos"});
+const guardarMenu = () => {
+    menuCompleto = JSON.parse(localStorage.getItem("menu")) || [];
+    var des = document.getElementById("des").value;
+    var costo = parseFloat(document.getElementById("cos").value);
+    if (des.trim() === "" || isNaN(costo) || document.getElementById("cos").value === "" || costo <= 0) {
+        Swal.fire({ icon: "error", title: "ERROR", text: "Datos Erroneos" });
         return;
     }
-    let menu={des,costo};
+    let menu = { des, costo };
     menuCompleto.push(menu);
-    localStorage.setItem("menu",JSON.stringify(menuCompleto));
+    localStorage.setItem("menu", JSON.stringify(menuCompleto));
     cargarMenu();
 }
 
@@ -53,11 +53,11 @@ const cargarOrdenes = () => {
     menuCompleto = JSON.parse(localStorage.getItem("menu")) || [];
     let divOrden = document.getElementById("orden");
     let ordenHTML = ``
-    if (ordenes.length == 0) {
-        divOrden.innerHTML = `<h2 class="text-center"><b>NO HAY ORDENES </b></h2>`
-         document.getElementById("subtotal").innerHTML= ` $ 0.00`
-        document.getElementById("propina").innerHTML= ` $ 0.00`
-        document.getElementById("total").innerHTML= ` $ 0.00`
+    if (ordenes.lenght == 0) {
+        divOrden.innerHTML = '<h2 class="text-center"><b>NO HAY ORDENES </b<>/h2>'
+        document.getElementById("subtotal").innerHTML = '$ 0.00'
+        document.getElementById("propina").innerHTML = '$ 0.00'
+        document.getElementById("total").innerHTML = '$ 0.00'
     } else {
         ordenes.map(o => {
             ordenHTML += `
@@ -79,7 +79,7 @@ subtotal+=(parseFloat(menuCompleto[o.index].costo)*parseFloat(o.cantidad));
         divOrden.innerHTML=ordenHTML;
         propina=((porcentaje/100)*subtotal);
         document.getElementById("subtotal").innerHTML=`$ ${subtotal.toFixed(2)}`
-        document.getElementById("propina").value.innerHTML=`$ ${propina.toFixed(2)}`
+        document.getElementById("propina").innerHTML=`$ ${propina.toFixed(2)}`
         document.getElementById("total").innerHTML=`$ ${(subtotal+propina).toFixed(2)}`
     }
 
@@ -112,7 +112,7 @@ const del=(index)=>{
             cargarOrdenes();
         }   
     });
-   
+
 }
 const terminar=()=>{
  Swal.fire({
@@ -133,7 +133,7 @@ const terminar=()=>{
         cargarOrdenes();
         Swal.fire("RESET EXITOSO","","success");
     }
-   
+
 });
 }
 const terminar2=()=>{
@@ -155,7 +155,7 @@ const terminar2=()=>{
            cargarOrdenes();
            Swal.fire("Cancelado","","success");
        }
-      
+
    });
    }
 cargarMenu();
