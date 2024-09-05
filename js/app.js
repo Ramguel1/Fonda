@@ -55,9 +55,9 @@ const cargarOrdenes = () => {
     let ordenHTML = ``
     if (ordenes.length == 0) {
         divOrden.innerHTML = `<h2 class="text-center"><b>NO HAY ORDENES </b></h2>`
-        document.getElementById("subtotal").innerHTML = '$ 0.00'
-        document.getElementById("propina").innerHTML = '$ 0.00'
-        document.getElementById("total").innerHTML = '$ 0.00'
+         document.getElementById("subtotal").innerHTML= ` $ 0.00`
+        document.getElementById("propina").innerHTML= ` $ 0.00`
+        document.getElementById("total").innerHTML= ` $ 0.00`
     } else {
         ordenes.map(o => {
             ordenHTML += `
