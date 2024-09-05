@@ -1,18 +1,18 @@
-var menuCompleto = JSON.parse(localStorage.getItem("menu")) || [];
-var ordenes = JSON.parse(localStorage.getItem("ordenes")) || [];
-var propina = 0, subtotal = 0, total = 0, porcentaje = 0;
+var menuCompleto=JSON.parse(localStorage.getItem("menu"))||[];
+var ordenes=JSON.parse(localStorage.getItem("ordenes"))||[];
+var propina=0, subtotal=0, total=0, porcentaje=10;
 
-const guardarMenu = () => {
-    menuCompleto = JSON.parse(localStorage.getItem("menu")) || [];
-    var des = document.getElementById("des").value;
-    var costo = parseFloat(document.getElementById("cos").value);
-    if (des.trim() === "" || isNaN(costo) || document.getElementById("cos").value === "" || costo <= 0) {
-        Swal.fire({ icon: "error", title: "ERROR", text: "Datos Erroneos" });
+const guardarMenu=()=>{
+    menuCompleto=JSON.parse(localStorage.getItem("menu"))||[];
+    var des=document.getElementById("des").value;
+    var costo=parseFloat(document.getElementById("cos").value);
+    if(des.trim()===""|| isNaN(costo)|| document.getElementById("cos").value===""|| costo<=0){
+        Swal.fire({icon: "error", title: "ERROR", text: "Datos incorrectos"});
         return;
     }
-    let menu = { des, costo };
+    let menu={des,costo};
     menuCompleto.push(menu);
-    localStorage.setItem("menu", JSON.stringify(menuCompleto));
+    localStorage.setItem("menu",JSON.stringify(menuCompleto));
     cargarMenu();
 }
 
